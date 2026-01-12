@@ -2,8 +2,12 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Text, View, Image, TextInput, Button, ScrollView } from 'react-native';
 
+import * as data from './data.json'
+import ExcercisesHomeScreen from './components/excerciseHomescreen';
+
 export default function App() {
   const [text, changeText] = useState('');
+  const filteredData = data.exercises.filter(item => text === '' ? '' : item.title.toLocaleLowerCase().includes(text.toLocaleLowerCase()));
 
   return (
     <View style={{ flexDirection: 'column' }}>
@@ -20,15 +24,16 @@ export default function App() {
           {/* TODO Think about searching ideas  */}
           <TextInput onChangeText={changeText} value={text} placeholder='Search about some exercise' style={{ backgroundColor: '#EDEDED', width: '92%', marginBottom: 25, paddingLeft: 20, borderRadius: 20 }} />
           {/* TODO Change background color of cards */}
-          {text ? '' : (
-            <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between' }}>
-              <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Back</Text>
-              <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Chest</Text>
-              <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Arms</Text>
-              <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Legs</Text>
-              <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Full-Body</Text>
-            </View>
-          )}
+          {text ?
+            <ExcercisesHomeScreen filter={filteredData} /> : (
+              <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between' }}>
+                <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Back</Text>
+                <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Chest</Text>
+                <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Arms</Text>
+                <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Legs</Text>
+                <Text style={{ backgroundColor: '#7CFC00', width: 65, height: 60, textAlignVertical: 'center', textAlign: 'center', borderRadius: 15 }}>Full-Body</Text>
+              </View>
+            )}
         </View>
         <View style={{ justifyContent: 'center', marginTop: 25, marginBottom: 70 }}>
           {/* It has to be filtered by most liked exercises */}
