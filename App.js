@@ -57,12 +57,12 @@ export default function App() {
         </View>
         <View style={{ backgroundColor: '#2F4F4F', flexDirection: 'row', justifyContent: 'center', paddingBottom: 30 }}>
           <View style={{ paddingTop: 15, width: '40%' }}>
-            <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}>21 Example Street</Text>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white', marginBottom: 5 }}>21 Example Street</Text>
             <Text style={{ color: 'white' }}>Sofia, Bulgaria</Text>
             <Text style={{ color: 'white' }}>support@company.com</Text>
           </View>
           <View style={{ paddingTop: 15, width: '40%' }}>
-            <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white' }}>About the company</Text>
+            <Text style={{ fontSize: 15, fontWeight: 'bold', color: 'white', marginBottom: 5 }}>About the company</Text>
             <Text style={{ color: 'white' }}>This is a student app, which is created not only for good grade, but also with educational purpose.</Text>
           </View>
         </View>
