@@ -2,6 +2,7 @@ import { Text, View, Image } from 'react-native';
 
 export default function ExcercisesHomeScreen(props) {
     return (
+        // Fix styling
         <View>
             {props.filter.map(e => (
                 <>
