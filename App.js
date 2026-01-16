@@ -5,6 +5,7 @@ import { Text, View, Image, TextInput, Button, ScrollView, StyleSheet } from 're
 import * as data from './data.json'
 import ExcercisesHomeScreen from './components/excerciseHomescreen';
 import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
+import { Home, Plus, CircleUserRound, Grid } from 'lucide-react-native';
 
 export default function App() {
   const [text, changeText] = useState('');
@@ -88,6 +89,12 @@ export default function App() {
             </View>
             <StatusBar style="auto" />
           </ScrollView>
+          <View style={style.navBar}>
+            <Home size={30} />
+            <Plus size={30} />
+            <Grid size={30} />
+            <CircleUserRound size={30} />
+          </View>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
@@ -96,8 +103,19 @@ export default function App() {
 
 const style = StyleSheet.create({
   mainContainer: {
+    flex: 1,
     flexDirection: 'column',
     marginTop: 10
+  },
+  navBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100%',
+    height: 50,
+    borderTopColor: '#dad5d5',
+    borderTopWidth: 1,
+
   },
   welcomeHeader: {
     fontSize: 28,
