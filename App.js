@@ -23,10 +23,11 @@ export default function App() {
                 <Image style={style.welcomeImage} source={require('./assets/homescreen.png')} />
               </View>
             </View>
-            <View style={{ alignItems: 'center', marginTop: 25 }}>
+            <View style={{ alignItems: 'center', marginTop: 25, width: '100%' }}>
               <TextInput onChangeText={changeText} value={text} placeholder='Search about some exercise' style={style.homescreenSearch} />
-              {text ?
-                <ExcercisesHomeScreen filter={filteredData} /> : (
+              {text
+                ? <ExcercisesHomeScreen searchedText={filteredData} />
+                : (
                   <View style={{ flexDirection: 'row', width: '90%', justifyContent: 'space-between' }}>
                     <Text style={style.searchingExcercisesCard}>Back</Text>
                     <Text style={style.searchingExcercisesCard}>Chest</Text>
